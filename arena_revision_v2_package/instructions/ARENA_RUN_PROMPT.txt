@@ -1,0 +1,72 @@
+You are running a storage-constrained major-revision experiment for IJSEKE manuscript IJSEKE-D-26-00185, “RC-EdgeDistill: LLM-Supervised Redaction-Consistent Learning for Hospital Feedback at the Edge”.
+
+All uploaded inputs are in the task upload area. First locate these files:
+- IJSEKE-D-26-00185.md
+- prepared_paired_dataset_2000.csv
+- decision_letter_reviewers.txt
+- review_revision_plan.md
+- the Python reference files, including student.py, common.py, metrics_utils.py, stage1_data_audit_split.py, stage2_train_student.py, stage3_test_student.py, stage4_baselines.py, stage5_timing.py, stage6_pii.py, stage7_repro_report.py, and redaction.py
+
+Create a new working directory named /home/user/revision_runs/major_revision_run_v2. Do not read old result CSVs, old predictions, old checkpoints, or old fitted models as model inputs. Do not overwrite any uploaded file or any previous run.
+
+PHASE 1 — INPUT CHECK ONLY
+Before training, verify and print:
+1. prepared_paired_dataset_2000.csv has 2,000 records;
+2. its SHA-256 is bf3ba79f69fc7b9f9b5c7497e592eec5b2f45b0483ee8db8aa8179797baed91e;
+3. IJSEKE-D-26-00185.md, decision_letter_reviewers.txt, and review_revision_plan.md are readable;
+4. all required Python reference files are present;
+5. the data columns and label values.
+If any check fails, stop and report the missing or mismatched input. Do not train.
+
+PHASE 2 — IMPLEMENTATION AND EXPERIMENT
+Use the manuscript architecture without redesign: paired original/redacted text views; char_wb TF-IDF ngrams (2,5), max 6,000; word TF-IDF ngrams (1,2), max 4,000; 10,000-dimensional concatenated input when available; a 384-dimensional shared layer; dropout 0.15; heads for service_domain, sentiment, priority, and pii_risk; supervised multi-task cross-entropy; and symmetric KL consistency only for service_domain, sentiment, and priority. Do not use Qwen, LoRA, QLoRA, transformers, a new backbone, a new dataset, or a substitute architecture.
+
+Use the explicit manuscript training settings. The manuscript states 160 full-batch epochs, Adam learning rate 0.006, weight decay 1e-4, and seed 20260715. For the requested repeated-seed audit, keep the same schedule and run seeds 20260715, 20260716, 20260717, 20260718, and 20260719. Do not silently substitute 40 epochs or mini-batches. If any setting is genuinely unspecified, record the assumption in implementation_assumptions.md.
+
+IMPORTANT IMPLEMENTATION FIX — SYMMETRIC KL
+The reference student.py contains an incomplete backward pass. Fix it before training. For each batch, p=softmax(z_original), q=softmax(z_redacted), and L=0.5*(KL(p||q)+KL(q||p)). With epsilon clipping and batch size B, use the complete logit gradients:
+
+g_p = 0.5/B * [ p*(log(p)-log(q)-KL(p||q)) + (p-q) ]
+g_q = 0.5/B * [ q*(log(q)-log(p)-KL(q||p)) + (q-p) ]
+
+The first term is the numerator-distribution derivative and the second is the denominator-distribution derivative. Add a finite-difference gradient check on a tiny dense fixture. Save the fixture, numerical gradient, analytical gradient, maximum absolute error, tolerance, and PASS/FAIL result. Do not proceed if it fails.
+
+MODEL SELECTION AND TESTING
+1. Run a leakage audit before modeling. Detect exact and near duplicates, group them, and ensure no group crosses train, validation, and test.
+2. Use a group-aware locked split. Record the exact counts, seed, duplicate method, thresholds, and limitations of available source metadata.
+3. Select lambda only on the validation set using the preregistered rule: maximize mean validation composite macro-F1; within 0.005 of the best, maximize mean validation consistency; then choose the smaller lambda.
+4. Never use locked-test labels or predictions for lambda selection.
+5. After selection, retrain each selected seed in memory and evaluate the locked test exactly once per seed.
+6. Report task-level macro-F1, composite macro-F1, all/changed/unchanged redaction consistency, 95% bootstrap intervals, per-class support and metrics, language/source subgroup diagnostics, and rare-class support. State clearly that language and source are confounded if they are.
+
+STORAGE RULES — MANDATORY
+The cloud workspace is limited to 128 MB. Keep the final run below 30 MB:
+- Do not save any model checkpoint;
+- do not save tfidf_vectorizer.pkl;
+- do not save baselines/fitted_models.pkl;
+- do not save per-baseline prediction files;
+- do not save raw timing files, figures, notebooks, caches, package wheels, or duplicate datasets;
+- fit and release one model at a time; after lambda selection, retrain and test in the same process without persisting weights;
+- save only aggregate validation/test/baseline/timing/PII CSVs, one combined RC per-record prediction CSV, necessary logs, source code, hashes, and the final report.
+
+BASELINES AND EDGE TIMING
+Run the same TF-IDF CPU baselines sequentially, selecting their parameters on validation only. Use a common end-to-end timing boundary for every method: normalization, local redaction, TF-IDF construction, inference, decoding, and serialization. Save only aggregate timing results and the timing protocol.
+
+PII, HUMAN VALIDATION, AND PROVENANCE
+Run the configured synthetic PII stress test, but keep it separate from human validation. If no independent human labels, human agreement statistics, LLM provider/model/version, complete prompts, settings, dates, retries, or adjudication logs are present in the uploaded materials, mark those items BLOCKED or ABSENT. Never fabricate human results, LLM provenance, ethics approvals, or false-negative examples.
+
+OUTPUTS
+Write everything under /home/user/revision_runs/major_revision_run_v2. Include:
+- src/ with the corrected and runnable code;
+- data/ with the working dataset copy, leakage audit, locked split, hashes, and manifests;
+- model/ with validation results, selection configuration, locked-test metrics, per-class metrics, bootstrap CIs, and combined predictions only;
+- baselines/ with validation/test summaries, selected parameters, per-class summaries, and encoder BLOCKED status if unavailable;
+- timing/ with aggregate end-to-end timing and protocol;
+- pii/ with synthetic stress summary, human-validation status, and LLM-provenance status;
+- reproducibility/ with requirements, exact commands, manifest, summary, and SHA256SUMS.txt;
+- FINAL_REVISION_RUN_REPORT.md;
+- implementation_assumptions.md and gradient_check/ artifacts.
+
+The final report must explicitly state that this is a corrected faithful reimplementation if the exact submitted implementation is unavailable. It must distinguish verified results from blocked or absent items. At the end, print the complete output tree, file count, total bytes, hashes, and all blocked items. Do not claim exact reproduction of the old 0.6896 / 0.9867 / 0.2042 results unless actual original checkpoints, predictions, and logs are present and verified.
+
+Do not modify the manuscript in this run. Produce experiment artifacts and a manuscript update map only. The manuscript will be revised locally after the new run has passed audit.

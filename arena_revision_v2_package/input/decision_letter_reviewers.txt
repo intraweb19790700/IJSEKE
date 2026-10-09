@@ -1,0 +1,60 @@
+View Letter
+Date:	Sep 23, 2026
+To:	"Yu Airong" yu_alice@163.com
+From:	"Int. J. Software Eng. & Knowledge Eng. (IJSEKE)" ijseke@wspc.com
+Subject:	IJSEKE: Your Submission IJSEKE-D-26-00185
+Ref.: Ms. No. IJSEKE-D-26-00185
+RC-EdgeDistill: LLM-Supervised Redaction-Consistent Learning for Hospital Feedback at the Edge
+Int'l Journal of Software Engineering and Knowledge Engineering
+
+Dear Dr. Yu Airong,
+
+Reviewers have now commented on your paper. You will see that they are advising that you revise your manuscript. Please note a major revision is requested. If the revision is found to be superficial, it will be rejected immediately without another round of review. Therefore please take your time in resubmitting the revised version.
+
+For your guidance, reviewers' comments are appended below.
+
+If you decide to revise the work, please submit a list of changes or a rebuttal against each point which is being raised when you submit the revised manuscript.
+
+Your revision is due by Oct 23, 2026.
+
+To submit a revision, go to https://www.editorialmanager.com/ijseke/ and log in as an Author. You will see a menu item call Submission Needing Revision. You will find your submission record there.
+
+Yours sincerely
+
+Jinjun Chen
+Editor-in-Chief
+Int'l Journal of Software Engineering and Knowledge Engineering
+
+Reviewers' comments:
+
+Reviewer #2: The manuscript presents RC-EdgeDistill, a lightweight multi-task framework for analyzing hospital feedback while maintaining prediction consistency after personal information is redacted. The separation between LLM-assisted label construction and local CPU inference is practical, and the manuscript is generally clear about the limitations of its results. In particular, the authors appropriately acknowledge that the classification improvement over LinearSVM is not statistically significant. However, several issues should be addressed before publication.
+
+The most important concern is the validity of the LLM-generated labels. The same LLM was used with two instructions, and the final test metrics measure agreement with labels produced through that process. Please report the LLM name and version, complete prompts, generation settings, and the exact adjudication procedure. More importantly, a representative sample—particularly high-priority, privacy/security, medication, and disagreement cases—should be independently reviewed by human evaluators. Human-LLM agreement and inter-rater agreement should be reported.
+Please provide more information about the train, validation, and test split. It should be confirmed that duplicate or near-duplicate records, reviews from the same source, and synthetic variants of the same record did not appear across different splits. Since the dataset combines Chinese and English records from different sources, separate results by language and source would help determine whether the model performs consistently or mainly learns source-specific patterns.
+The model-selection procedure needs clarification. The manuscript states that several values of the consistency weight were examined and that λ = 0.10 performed better on the test set, although λ = 0.05 was retained as the main model. Hyperparameters should be selected using only the validation set, followed by a single evaluation on a locked test set. Results from multiple random seeds should also be reported, together with confidence intervals for the main task-level metrics.
+The privacy evaluation should be strengthened. A macro-F1 of 1.000 for the deterministic module appears to reflect agreement with labels and synthetic patterns based on the same predefined rules. This does not demonstrate reliable detection of unseen names, addresses, institutional identifiers, spelling variations, or more complex personal information. Please evaluate the module on an independently annotated set and report precision, recall, and false-negative examples. Redaction consistency should also be calculated separately for records that were actually changed by redaction, since unchanged records can make the overall consistency score appear higher.
+The baseline and efficiency comparisons would benefit from additional detail. Please provide the hyperparameters and tuning procedures for all classifiers and confirm that they used the same training and test partitions. A fine-tuned compact multilingual encoder would provide a stronger comparison than frozen embeddings alone. End-to-end latency should also be measured consistently across the most important baselines, including tokenization, feature construction, redaction, inference, and decoding.
+
+The manuscript has a useful central idea and is presented with commendable transparency. Addressing these points would substantially strengthen the evidence for label reliability, privacy protection, generalization, and practical deployment.
+
+
+Reviewer #3: The paper has a useful idea and the redaction consistency objective is interesting. The main results are presented carefully, but stronger validation of the LLM generated labels, clearer labeling details, and better testing across languages, rare classes, and real personal information are needed before the results can be fully trusted. below are few comments
+
+1. LLM details: Please provide the exact LLM name, version, provider, settings, and date used to create the labels. This information is important for reproducing the study.
+2. Labeling instructions: The paper mentions two different LLM instructions, but the exact prompts are not provided. Please include both instructions in the paper or supplementary material.
+3. Human validation: The test labels are based on the same LLM assisted labeling process used for training. Please validate at least part of the test set with independent human reviewers.
+4. Adjudication process: When the two LLM outputs disagree, the paper says the source text is checked against the rules. Please explain who performs this check and how the final label is selected.
+5. Rare classes: Some service categories are very small. For example, the medication category contains only 17 records. Please report test counts and per class results for these rare categories.
+6. Language wise results: The dataset combines Chinese and English records. Please report performance separately for Chinese and English data to show whether the model works similarly for both.
+7. Source differences: The Chinese and English data come from different sources and countries. Please discuss whether the model may be learning source specific patterns instead of general hospital feedback patterns.
+8. Train and test split: Please explain whether records from the same hospital, website, or source can appear in both training and test sets. A source level split would give stronger evidence of generalization.
+9. PII detection: The local rule module reaches perfect performance on the current labels and injected patterns, but this does not show that it can detect all real names, addresses, or identifiers. Please add a small human checked PII test set if possible.
+10. Model comparison: RC-EdgeDistill and LinearSVM have very similar classification results, and the bootstrap interval includes zero. Please keep the main contribution focused on redaction consistency rather than classification improvement.
+11. Repeated experiments: Most results appear to come from one train, validation, and test split. Please consider multiple random seeds or repeated splits, especially because the dataset contains only 2,000 records.
+12. Lambda selection: Please explain how the main value of λ = 0.05 was selected without using the test set. The paper correctly notes that λ = 0.10 was examined only after looking at the test results.
+13. Speed comparison: The full local pipeline timing is available for RC-EdgeDistill, but the same complete timing is not available for all baselines. A common end to end timing setup would make the efficiency comparison stronger.
+14. Hospital use claim: The current data are public and de-identified, while the intended use includes hospital complaints and internal feedback. Please keep this limitation clear and avoid implying that the model has already been validated on hospital owned records.
+15. Ethics and data collection: Please add a short statement explaining the ethics or exemption status for collecting the Chinese public web records and how the records were de-identified.
+16. Reproducibility: Please provide the labeling prompts, redaction rules, complete training settings, and code or configuration used to reproduce the reported results.
+
+In compliance with data protection regulations, you may request that we remove your personal registration details at any time. (Use the following URL: https://www.editorialmanager.com/ijseke/login.asp?a=r). Please contact the publication office if you have any questions.
