@@ -1,0 +1,18 @@
+--- baseline tfidf_logistic_balanced (grid C=[0.5, 1.0, 4.0]) ---
+tfidf_logistic_balanced: selected C=4.0 (val composite 0.5638)
+--- baseline tfidf_linear_svc_balanced (grid C=[0.5, 1.0, 4.0]) ---
+tfidf_linear_svc_balanced: selected C=1.0 (val composite 0.5679)
+--- baseline tfidf_sgd_modified_huber (grid alpha=[1e-05, 0.0001, 0.001]) ---
+tfidf_sgd_modified_huber: selected alpha=0.001 (val composite 0.5724)
+--- baseline tfidf_ridge_balanced (grid alpha=[0.5, 1.0, 5.0]) ---
+tfidf_ridge_balanced: selected alpha=1.0 (val composite 0.5757)
+--- baseline tfidf_complement_nb (grid alpha=[0.5, 1.0, 2.0]) ---
+tfidf_complement_nb: selected alpha=0.5 (val composite 0.3918)
+                               mean      std
+baseline                                    
+tfidf_complement_nb        0.406382  0.00000
+tfidf_linear_svc_balanced  0.564788  0.00000
+tfidf_logistic_balanced    0.563614  0.00000
+tfidf_ridge_balanced       0.566279  0.00000
+tfidf_sgd_modified_huber   0.559140  0.00464
+stage4 done

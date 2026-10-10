@@ -1,0 +1,6 @@
+run_label,baseline,parameter,grid,selected_value,selection_metric,selected_val_composite_macro_f1,selection_data
+CORRECTED_FAITHFUL_REIMPLEMENTATION,tfidf_logistic_balanced,C,"[0.5, 1.0, 4.0]",4.0,mean validation composite macro-F1 across seeds,0.5638010192872959,locked validation split only
+CORRECTED_FAITHFUL_REIMPLEMENTATION,tfidf_linear_svc_balanced,C,"[0.5, 1.0, 4.0]",1.0,mean validation composite macro-F1 across seeds,0.5678885639410948,locked validation split only
+CORRECTED_FAITHFUL_REIMPLEMENTATION,tfidf_sgd_modified_huber,alpha,"[1e-05, 0.0001, 0.001]",0.001,mean validation composite macro-F1 across seeds,0.5723608444680968,locked validation split only
+CORRECTED_FAITHFUL_REIMPLEMENTATION,tfidf_ridge_balanced,alpha,"[0.5, 1.0, 5.0]",1.0,mean validation composite macro-F1 across seeds,0.5757184133241497,locked validation split only
+CORRECTED_FAITHFUL_REIMPLEMENTATION,tfidf_complement_nb,alpha,"[0.5, 1.0, 2.0]",0.5,mean validation composite macro-F1 across seeds,0.39177444213709595,locked validation split only
