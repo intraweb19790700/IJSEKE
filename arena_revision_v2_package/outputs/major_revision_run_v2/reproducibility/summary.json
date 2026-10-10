@@ -1,0 +1,85 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "manuscript": "IJSEKE-D-26-00185 (RC-EdgeDistill)",
+  "date": "2026-10-10",
+  "statement": "corrected faithful reimplementation (NOT an exact reproduction; the exact submitted implementation is unavailable)",
+  "repository_root": "/home/user/IJSEKE",
+  "run_root": "/home/user/IJSEKE/arena_revision_v2_package/outputs/major_revision_run_v2",
+  "data_sha256": "bf3ba79f69fc7b9f9b5c7497e592eec5b2f45b0483ee8db8aa8179797baed91e",
+  "data_sha256_verified": true,
+  "code_hash": "fdc9a792c713446b27ffe746d5687ad39d0967425865ce377cb2b0d3a5817110",
+  "split_seed": 20260720,
+  "split_counts": {
+    "train": 1400,
+    "validation": 301,
+    "test": 299
+  },
+  "selected_lambda": 0.25,
+  "training": {
+    "epochs": 160,
+    "batching": "full-batch",
+    "optimizer": "Adam",
+    "lr": 0.006,
+    "weight_decay": 0.0001,
+    "dropout": 0.15,
+    "shared_dim": 384,
+    "seeds": [
+      20260715,
+      20260716,
+      20260717,
+      20260718,
+      20260719
+    ]
+  },
+  "gradient_check": {
+    "symmetric_kl_max_abs_error": 3.0362514585879907e-10,
+    "symmetric_kl_tolerance": 1e-06,
+    "symmetric_kl_result": "PASS",
+    "parameter_max_abs_error": 2.948550514858539e-09,
+    "parameter_tolerance": 1e-05,
+    "parameter_result": "PASS",
+    "overall_result": "PASS"
+  },
+  "locked_test": {
+    "rows": 299,
+    "composite_macro_f1_mean": 0.5420991071497319,
+    "composite_macro_f1_std": 0.0076890562908042,
+    "service_domain_macro_f1_mean": 0.4326357513518006,
+    "sentiment_macro_f1_mean": 0.5567831291002436,
+    "priority_macro_f1_mean": 0.6368784409971514,
+    "pii_risk_macro_f1_mean": 0.4978162540183858,
+    "mean_consistency_all": 0.9678929765886288,
+    "mean_consistency_changed": 0.9380645161290324,
+    "mean_consistency_unchanged": 1.0,
+    "en_composite": 0.5747236394918377,
+    "zh_composite": 0.4001422007442476,
+    "medication_support": 4,
+    "medication_f1": 0.3333333333333333
+  },
+  "baselines_test_composite_macro_f1_mean": {
+    "tfidf_complement_nb": 0.4063823334235572,
+    "tfidf_linear_svc_balanced": 0.5647876595402214,
+    "tfidf_logistic_balanced": 0.5636139099978051,
+    "tfidf_ridge_balanced": 0.5662787314282486,
+    "tfidf_sgd_modified_huber": 0.5591396975775031
+  },
+  "timing_mean_ms_per_record": {
+    "rc_edgedistill_lambda_0.25": 1.5263489846154357,
+    "tfidf_logistic_balanced": 4.303852816059266,
+    "tfidf_linear_svc_balanced": 2.405047821405158,
+    "tfidf_sgd_modified_huber": 2.21289095049898,
+    "tfidf_ridge_balanced": 2.237303438797794,
+    "tfidf_complement_nb": 2.317178952505302
+  },
+  "blocked_items": [
+    "exact submitted implementation (NOT_FOUND -> CORRECTED_FAITHFUL_REIMPLEMENTATION)",
+    "verification of submitted reference metrics 0.6896 / 0.9867 / 0.2042 (no original checkpoints, predictions, or logs are present)",
+    "compact multilingual encoder baseline (torch/sentence-transformers not installed)",
+    "frozen sentence-embedding baselines (sentence-transformers not installed; submitted numbers not verifiable)",
+    "independent human PII validation (no human labels)",
+    "LLM provenance metadata for the submitted model (ABSENT)",
+    "human agreement statistics (BLOCKED)",
+    "ethics approval/exemption records (ABSENT)",
+    "hospital/website/account/collection-batch/synthetic-parent metadata (ABSENT)"
+  ]
+}

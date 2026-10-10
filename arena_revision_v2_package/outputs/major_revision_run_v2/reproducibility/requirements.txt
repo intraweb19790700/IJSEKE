@@ -1,0 +1,10 @@
+# Python 3.11.2 (CPython) - recorded from the run environment
+numpy==2.4.6
+pandas==3.0.6
+scipy==1.17.1
+scikit-learn==1.9.1
+# torch / transformers / sentence-transformers are NOT required: the student is
+# implemented in pure numpy/scipy/scikit-learn (see implementation_assumptions.md).
+# torch and sentence-transformers are NOT installed in this environment; the compact
+# multilingual encoder baseline and the frozen-embedding baselines are BLOCKED
+# (see baselines/encoder_baseline_status.json).

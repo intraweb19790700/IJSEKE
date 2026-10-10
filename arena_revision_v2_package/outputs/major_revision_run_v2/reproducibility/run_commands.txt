@@ -1,0 +1,21 @@
+# RC-EdgeDistill major revision run v2 - exact commands.
+# Run from the repository root with the pinned environment (reproducibility/requirements.txt).
+# All stages are CPU-only with OMP_NUM_THREADS=1 and PYTHONDONTWRITEBYTECODE=1. No GPU packages used.
+VENV=/path/to/venv   # python >= 3.11 with numpy/pandas/scipy/scikit-learn (see requirements.txt)
+RUN=arena_revision_v2_package/outputs/major_revision_run_v2
+# Stage 1: input verification + leakage audit + group-aware locked split (seed 20260720)
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage1_input_audit.py
+# Stage 2a: finite-difference gradient check of the corrected symmetric-KL backward pass
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python gradient_check.py
+# Stage 2b: train TF-IDF student, lambda grid [0,0.03,0.05,0.10,0.25] x seeds [20260715..20260719], 160 FULL-BATCH epochs, Adam lr=0.006 wd=1e-4 (validation-only selection)
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage2_train_student.py --epochs 160
+# Stage 3: retrain each selected seed in memory; evaluate the locked test exactly once per seed
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage3_test_student.py
+# Stage 4: TF-IDF baselines (params selected on validation only) + encoder BLOCKED status
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage4_baselines.py
+# Stage 5: common end-to-end CPU timing (1 warm-up + 5 repetitions, per-record)
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage5_timing.py
+# Stage 6: synthetic PII stress test + human-validation BLOCKED status + LLM provenance ABSENT
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage6_pii.py
+# Stage 7: reproducibility package + final report
+cd $RUN/src && OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 $VENV/bin/python stage7_repro_report.py
