@@ -1,0 +1,37 @@
+student refit in memory (lambda=0.25, seed=20260715)
+baseline refit in memory: tfidf_logistic_balanced (C=4.0)
+baseline refit in memory: tfidf_linear_svc_balanced (C=1.0)
+baseline refit in memory: tfidf_sgd_modified_huber (alpha=0.001)
+baseline refit in memory: tfidf_ridge_balanced (alpha=1.0)
+baseline refit in memory: tfidf_complement_nb (alpha=0.5)
+rc_edgedistill_lambda_0.25 rep=0 mean=1.519 ms/record total=0.45s
+rc_edgedistill_lambda_0.25 rep=1 mean=1.482 ms/record total=0.44s
+rc_edgedistill_lambda_0.25 rep=2 mean=1.513 ms/record total=0.45s
+rc_edgedistill_lambda_0.25 rep=3 mean=1.579 ms/record total=0.47s
+rc_edgedistill_lambda_0.25 rep=4 mean=1.539 ms/record total=0.46s
+tfidf_logistic_balanced rep=0 mean=3.988 ms/record total=1.19s
+tfidf_logistic_balanced rep=1 mean=3.797 ms/record total=1.14s
+tfidf_logistic_balanced rep=2 mean=4.359 ms/record total=1.30s
+tfidf_logistic_balanced rep=3 mean=4.928 ms/record total=1.47s
+tfidf_logistic_balanced rep=4 mean=4.447 ms/record total=1.33s
+tfidf_linear_svc_balanced rep=0 mean=2.170 ms/record total=0.65s
+tfidf_linear_svc_balanced rep=1 mean=2.614 ms/record total=0.78s
+tfidf_linear_svc_balanced rep=2 mean=2.695 ms/record total=0.81s
+tfidf_linear_svc_balanced rep=3 mean=2.602 ms/record total=0.78s
+tfidf_linear_svc_balanced rep=4 mean=1.944 ms/record total=0.58s
+tfidf_sgd_modified_huber rep=0 mean=2.260 ms/record total=0.68s
+tfidf_sgd_modified_huber rep=1 mean=2.161 ms/record total=0.65s
+tfidf_sgd_modified_huber rep=2 mean=2.188 ms/record total=0.65s
+tfidf_sgd_modified_huber rep=3 mean=2.243 ms/record total=0.67s
+tfidf_sgd_modified_huber rep=4 mean=2.212 ms/record total=0.66s
+tfidf_ridge_balanced rep=0 mean=2.271 ms/record total=0.68s
+tfidf_ridge_balanced rep=1 mean=2.257 ms/record total=0.68s
+tfidf_ridge_balanced rep=2 mean=2.236 ms/record total=0.67s
+tfidf_ridge_balanced rep=3 mean=2.216 ms/record total=0.66s
+tfidf_ridge_balanced rep=4 mean=2.207 ms/record total=0.66s
+tfidf_complement_nb rep=0 mean=2.292 ms/record total=0.69s
+tfidf_complement_nb rep=1 mean=2.297 ms/record total=0.69s
+tfidf_complement_nb rep=2 mean=2.383 ms/record total=0.71s
+tfidf_complement_nb rep=3 mean=2.366 ms/record total=0.71s
+tfidf_complement_nb rep=4 mean=2.249 ms/record total=0.67s
+stage5 done
