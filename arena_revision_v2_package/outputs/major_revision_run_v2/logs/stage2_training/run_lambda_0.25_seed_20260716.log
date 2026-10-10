@@ -1,0 +1,19 @@
+run_label=CORRECTED_FAITHFUL_REIMPLEMENTATION lambda=0.25 seed=20260716 epochs=160 full_batch=True lr=0.006 weight_decay=0.0001 dropout=0.15 shared_dim=384
+epoch=  1 train_loss=10.3861 consistency_kl=0.0002 val_composite_macro_f1=0.3114 val_mean_consistency=0.9867
+epoch= 10 train_loss=3.1525 consistency_kl=0.0513 val_composite_macro_f1=0.5267 val_mean_consistency=0.9612
+epoch= 20 train_loss=0.8349 consistency_kl=0.0661 val_composite_macro_f1=0.5465 val_mean_consistency=0.9568
+epoch= 30 train_loss=0.2595 consistency_kl=0.0418 val_composite_macro_f1=0.5456 val_mean_consistency=0.9690
+epoch= 40 train_loss=0.1360 consistency_kl=0.0230 val_composite_macro_f1=0.5477 val_mean_consistency=0.9690
+epoch= 50 train_loss=0.0863 consistency_kl=0.0132 val_composite_macro_f1=0.5484 val_mean_consistency=0.9646
+epoch= 60 train_loss=0.0733 consistency_kl=0.0093 val_composite_macro_f1=0.5514 val_mean_consistency=0.9668
+epoch= 70 train_loss=0.0629 consistency_kl=0.0094 val_composite_macro_f1=0.5563 val_mean_consistency=0.9723
+epoch= 80 train_loss=0.0570 consistency_kl=0.0069 val_composite_macro_f1=0.5545 val_mean_consistency=0.9646
+epoch= 90 train_loss=0.0546 consistency_kl=0.0061 val_composite_macro_f1=0.5440 val_mean_consistency=0.9646
+epoch=100 train_loss=0.0503 consistency_kl=0.0060 val_composite_macro_f1=0.5448 val_mean_consistency=0.9668
+epoch=110 train_loss=0.0486 consistency_kl=0.0046 val_composite_macro_f1=0.5487 val_mean_consistency=0.9679
+epoch=120 train_loss=0.0447 consistency_kl=0.0043 val_composite_macro_f1=0.5479 val_mean_consistency=0.9668
+epoch=130 train_loss=0.0432 consistency_kl=0.0033 val_composite_macro_f1=0.5462 val_mean_consistency=0.9701
+epoch=140 train_loss=0.0448 consistency_kl=0.0034 val_composite_macro_f1=0.5458 val_mean_consistency=0.9646
+epoch=150 train_loss=0.0394 consistency_kl=0.0030 val_composite_macro_f1=0.5482 val_mean_consistency=0.9646
+epoch=160 train_loss=0.0373 consistency_kl=0.0029 val_composite_macro_f1=0.5494 val_mean_consistency=0.9579
+final val_composite_macro_f1=0.549444 val_service_domain_macro_f1=0.412918 val_sentiment_macro_f1=0.583863 val_priority_macro_f1=0.651550 val_pii_risk_macro_f1=0.494966 val_mean_consistency=0.957918 train_seconds=23.7
