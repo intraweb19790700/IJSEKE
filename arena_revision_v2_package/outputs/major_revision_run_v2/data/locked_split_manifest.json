@@ -1,0 +1,171 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "created": "2026-10-10",
+  "source_dataset": "/home/user/IJSEKE/arena_revision_v2_package/input/prepared_paired_dataset_2000.csv",
+  "data_sha256": "bf3ba79f69fc7b9f9b5c7497e592eec5b2f45b0483ee8db8aa8179797baed91e",
+  "rows": 2000,
+  "split_seed": 20260720,
+  "split_targets": {
+    "validation": 0.15,
+    "test": 0.15,
+    "train": 0.7
+  },
+  "split_counts": {
+    "train": 1400,
+    "validation": 301,
+    "test": 299
+  },
+  "language_counts_per_split": {
+    "train": {
+      "zh": 734,
+      "en": 666
+    },
+    "validation": {
+      "zh": 158,
+      "en": 143
+    },
+    "test": {
+      "zh": 157,
+      "en": 142
+    }
+  },
+  "source_family_counts_per_split": {
+    "train": {
+      "chinese_public_web_deidentified": 734,
+      "english_public_hospital_reviews": 666
+    },
+    "validation": {
+      "chinese_public_web_deidentified": 158,
+      "english_public_hospital_reviews": 143
+    },
+    "test": {
+      "chinese_public_web_deidentified": 157,
+      "english_public_hospital_reviews": 142
+    }
+  },
+  "language_source_confounded": true,
+  "class_support_per_split": {
+    "service_domain": {
+      "train": {
+        "clinical_process": 407,
+        "other_uncertain": 325,
+        "staff_communication": 212,
+        "privacy_security": 125,
+        "wait_time": 81,
+        "environment_facility": 66,
+        "billing_insurance": 64,
+        "administration": 56,
+        "praise_general": 53,
+        "medication": 11
+      },
+      "validation": {
+        "clinical_process": 90,
+        "other_uncertain": 62,
+        "staff_communication": 56,
+        "privacy_security": 28,
+        "billing_insurance": 16,
+        "administration": 14,
+        "praise_general": 14,
+        "wait_time": 11,
+        "environment_facility": 8,
+        "medication": 2
+      },
+      "test": {
+        "clinical_process": 85,
+        "other_uncertain": 58,
+        "staff_communication": 50,
+        "privacy_security": 32,
+        "billing_insurance": 21,
+        "environment_facility": 17,
+        "wait_time": 13,
+        "administration": 12,
+        "praise_general": 7,
+        "medication": 4
+      }
+    },
+    "sentiment": {
+      "train": {
+        "positive": 615,
+        "negative": 558,
+        "neutral": 227
+      },
+      "validation": {
+        "positive": 135,
+        "negative": 97,
+        "neutral": 69
+      },
+      "test": {
+        "positive": 124,
+        "negative": 114,
+        "neutral": 61
+      }
+    },
+    "priority": {
+      "train": {
+        "low": 700,
+        "high": 374,
+        "medium": 326
+      },
+      "validation": {
+        "low": 166,
+        "medium": 71,
+        "high": 64
+      },
+      "test": {
+        "low": 157,
+        "high": 75,
+        "medium": 67
+      }
+    },
+    "pii_risk": {
+      "train": {
+        "contains_pii": 853,
+        "none_or_redacted": 547
+      },
+      "validation": {
+        "contains_pii": 183,
+        "none_or_redacted": 118
+      },
+      "test": {
+        "contains_pii": 160,
+        "none_or_redacted": 139
+      }
+    }
+  },
+  "duplicate_audit": {
+    "exact_duplicate_method": "NFKC + casefold + whitespace collapse on both text views; union-find",
+    "exact_duplicate_pairs": 120,
+    "exact_duplicate_member_rows": 85,
+    "near_duplicate_method": "char_wb (3,5) TF-IDF cosine similarity >= 0.9 on both views; union-find",
+    "near_duplicate_threshold": 0.9,
+    "near_duplicate_pairs": 448,
+    "near_duplicate_member_rows": 383,
+    "total_groups": 1755,
+    "largest_group_size": 13
+  },
+  "crossing_counts": {
+    "groups_crossing_splits": 0,
+    "exact_duplicate_pairs_separated": 0,
+    "near_duplicate_pairs_separated": 0
+  },
+  "metadata_availability": {
+    "hospital": "ABSENT - column not present in dataset",
+    "website": "ABSENT - column not present in dataset",
+    "account": "ABSENT - column not present in dataset",
+    "collection_batch": "ABSENT - column not present in dataset",
+    "synthetic_parent_id": "ABSENT - no parent-id column; pii_original used as synthetic-injection proxy",
+    "available": [
+      "record_id",
+      "language",
+      "source_family",
+      "split (original)",
+      "pii_original",
+      "pii_redacted",
+      "confidence"
+    ]
+  },
+  "text_view_equality": {
+    "rows_original_equals_redacted": 846,
+    "rows_changed_by_redaction": 1154
+  }
+}

@@ -1,0 +1,78 @@
+==============================================================================
+CONNECTED REPOSITORY / PACKAGE LOCATION
+==============================================================================
+repository root : /home/user
+package root    : /home/user/IJSEKE/arena_revision_v2_package
+run root        : /home/user/IJSEKE/arena_revision_v2_package/outputs/major_revision_run_v2
+
+==============================================================================
+COMPLETE PACKAGE TREE (arena_revision_v2_package/)
+==============================================================================
+arena_revision_v2_package/README.md  (1237 bytes)
+arena_revision_v2_package/code_reference/common.py  (3631 bytes)
+arena_revision_v2_package/code_reference/metrics_utils.py  (3381 bytes)
+arena_revision_v2_package/code_reference/redaction.py  (643 bytes)
+arena_revision_v2_package/code_reference/stage1_data_audit_split.py  (15497 bytes)
+arena_revision_v2_package/code_reference/stage1b_leakage_audit_json.py  (3875 bytes)
+arena_revision_v2_package/code_reference/stage2_train_student.py  (10985 bytes)
+arena_revision_v2_package/code_reference/stage3_test_student.py  (11261 bytes)
+arena_revision_v2_package/code_reference/stage4_baselines.py  (12241 bytes)
+arena_revision_v2_package/code_reference/stage5_timing.py  (8086 bytes)
+arena_revision_v2_package/code_reference/stage6_pii.py  (11430 bytes)
+arena_revision_v2_package/code_reference/stage7_repro_report.py  (33745 bytes)
+arena_revision_v2_package/code_reference/student.py  (7134 bytes)
+arena_revision_v2_package/input/IJSEKE-D-26-00185.md  (106030 bytes)
+arena_revision_v2_package/input/decision_letter_reviewers.txt  (8892 bytes)
+arena_revision_v2_package/input/prepared_paired_dataset_2000.csv  (2691388 bytes)
+arena_revision_v2_package/input/review_revision_plan.md  (66629 bytes)
+arena_revision_v2_package/instructions/ARENA_RUN_PROMPT.txt  (7044 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/logs/stage1.log  (0 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/common.py  (6219 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/gradient_check.py  (11316 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/metrics_utils.py  (3605 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage1_input_audit.py  (24455 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage2_train_student.py  (17893 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage3_test_student.py  (12508 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage4_baselines.py  (11454 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage5_timing.py  (10591 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage6_pii.py  (12677 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/stage7_repro_report.py  (43721 bytes)
+arena_revision_v2_package/outputs/major_revision_run_v2/src/student.py  (10281 bytes)
+
+[PASS] dataset record count: 2000 records (expected 2000)
+[PASS] dataset SHA-256: bf3ba79f69fc7b9f9b5c7497e592eec5b2f45b0483ee8db8aa8179797baed91e (expected bf3ba79f69fc7b9f9b5c7497e592eec5b2f45b0483ee8db8aa8179797baed91e)
+[PASS] readable: manuscript IJSEKE-D-26-00185.md: IJSEKE-D-26-00185.md, 106030 bytes
+[PASS] readable: decision_letter_reviewers.txt: decision_letter_reviewers.txt, 8892 bytes
+[PASS] readable: review_revision_plan.md: review_revision_plan.md, 66629 bytes
+[PASS] all required code_reference Python files present: 12/12
+[PASS] data columns and label values recorded: columns=['record_id', 'language', 'source_family', 'split', 'original_text', 'redacted_text', 'service_domain', 'sentiment', 'priority', 'pii_original', 'pii_redacted', 'confidence']
+
+Label value sets:
+  language: ['en', 'zh']
+  source_family: ['chinese_public_web_deidentified', 'english_public_hospital_reviews']
+  split: ['test', 'train', 'validation']
+  service_domain: ['administration', 'billing_insurance', 'clinical_process', 'environment_facility', 'medication', 'other_uncertain', 'praise_general', 'privacy_security', 'staff_communication', 'wait_time']
+  sentiment: ['negative', 'neutral', 'positive']
+  priority: ['high', 'low', 'medium']
+  pii_original: ['contains_pii', 'none_or_redacted']
+  pii_redacted: ['none_or_redacted']
+  confidence: ['high', 'medium']
+
+
+==============================================================================
+LEAKAGE AUDIT (exact + near duplicates)
+==============================================================================
+exact duplicate pairs (either view): 120
+near duplicate pairs (cosine >= 0.9, view=original_text): 447
+near duplicate pairs (cosine >= 0.9, view=redacted_text): 445
+near duplicate pairs (union of views): 448
+
+==============================================================================
+GROUP-AWARE LOCKED SPLIT (seed 20260720)
+==============================================================================
+locked split counts: {'train': 1400, 'validation': 301, 'test': 299}
+groups crossing splits: 0 (must be 0)
+exact duplicate pairs separated: 0 (must be 0)
+near duplicate pairs separated: 0 (must be 0)
+
+stage1 done: input verification PASS, leakage audit PASS, locked split written

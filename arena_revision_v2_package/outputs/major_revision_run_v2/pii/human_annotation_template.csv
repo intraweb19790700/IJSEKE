@@ -1,0 +1,2 @@
+record_id,text_view,pii_type,pii_text,span_start,span_end,label,annotator_id,annotation_date,adjudicator_id,notes
+EXAMPLE_1,original,phone,+1-555-0123,0,0,contains_pii,ANNOTATOR_ID,YYYY-MM-DD,ADJUDICATOR_ID,TEMPLATE EXAMPLE - NOT A REAL ANNOTATION

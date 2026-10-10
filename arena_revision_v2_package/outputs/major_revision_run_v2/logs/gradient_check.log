@@ -1,0 +1,5 @@
+[CORRECTED_FAITHFUL_REIMPLEMENTATION] finite-difference gradient check (tolerance: KL 1e-06, params 1e-05, fd step 1e-06)
+symmetric-KL logit grads: max_abs_error=3.036e-10 tolerance=1.0e-06 -> PASS
+student parameter grads:  max_abs_error=2.949e-09 tolerance=1.0e-05 -> PASS
+overall gradient check: PASS
+saved under /home/user/IJSEKE/arena_revision_v2_package/outputs/major_revision_run_v2/gradient_check

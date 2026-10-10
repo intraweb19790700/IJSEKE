@@ -1,0 +1,37 @@
+preregistered selection config: /home/user/IJSEKE/arena_revision_v2_package/outputs/major_revision_run_v2/model/selection_config.yaml
+implementation assumptions: /home/user/IJSEKE/arena_revision_v2_package/outputs/major_revision_run_v2/implementation_assumptions.md
+feature_dim=10000 (char=6000 word=4000); train=1400 val=301 test=299
+training: 160 full-batch epochs, Adam lr=0.006, wd=0.0001
+skip existing lambda=0.0 seed=20260715
+done lambda=0.0 seed=20260716 val_composite=0.5485 val_consistency=0.9568
+done lambda=0.0 seed=20260717 val_composite=0.5488 val_consistency=0.9623
+done lambda=0.0 seed=20260718 val_composite=0.5484 val_consistency=0.9623
+done lambda=0.0 seed=20260719 val_composite=0.5551 val_consistency=0.9646
+done lambda=0.03 seed=20260715 val_composite=0.5466 val_consistency=0.9612
+done lambda=0.03 seed=20260716 val_composite=0.5502 val_consistency=0.9590
+done lambda=0.03 seed=20260717 val_composite=0.5498 val_consistency=0.9601
+done lambda=0.03 seed=20260718 val_composite=0.5495 val_consistency=0.9623
+done lambda=0.03 seed=20260719 val_composite=0.5551 val_consistency=0.9646
+done lambda=0.05 seed=20260715 val_composite=0.5470 val_consistency=0.9612
+done lambda=0.05 seed=20260716 val_composite=0.5502 val_consistency=0.9568
+done lambda=0.05 seed=20260717 val_composite=0.5488 val_consistency=0.9623
+done lambda=0.05 seed=20260718 val_composite=0.5504 val_consistency=0.9646
+done lambda=0.05 seed=20260719 val_composite=0.5560 val_consistency=0.9646
+done lambda=0.1 seed=20260715 val_composite=0.5459 val_consistency=0.9623
+done lambda=0.1 seed=20260716 val_composite=0.5486 val_consistency=0.9601
+done lambda=0.1 seed=20260717 val_composite=0.5515 val_consistency=0.9623
+done lambda=0.1 seed=20260718 val_composite=0.5494 val_consistency=0.9646
+done lambda=0.1 seed=20260719 val_composite=0.5560 val_consistency=0.9646
+done lambda=0.25 seed=20260715 val_composite=0.5473 val_consistency=0.9679
+done lambda=0.25 seed=20260716 val_composite=0.5494 val_consistency=0.9579
+done lambda=0.25 seed=20260717 val_composite=0.5535 val_consistency=0.9635
+done lambda=0.25 seed=20260718 val_composite=0.5484 val_consistency=0.9657
+done lambda=0.25 seed=20260719 val_composite=0.5533 val_consistency=0.9668
+SELECTED LAMBDA: 0.25
+ lambda  val_composite_macro_f1_mean  val_composite_macro_f1_std  val_mean_consistency_mean  val_mean_consistency_std  seeds
+   0.00                     0.549485                    0.003285                   0.961462                  0.002866      5
+   0.03                     0.550260                    0.003081                   0.961462                  0.002130      5
+   0.05                     0.550492                    0.003343                   0.961905                  0.003190      5
+   0.10                     0.550277                    0.003763                   0.962791                  0.001853      5
+   0.25                     0.550396                    0.002864                   0.964341                  0.003947      5
+stage2 done

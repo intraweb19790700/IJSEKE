@@ -1,0 +1,17 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "date": "2026-10-10",
+  "submitted_model": "RC-EdgeDistill (manuscript IJSEKE-D-26-00185)",
+  "llm_provider": "ABSENT - no LLM provider is configured or recorded anywhere in the package",
+  "llm_model_version": "ABSENT - no LLM model name/version is recorded for label construction",
+  "llm_dates": "ABSENT - no LLM request dates/logs exist",
+  "llm_generation_settings": "ABSENT - no temperature/top_p/max_tokens/seed logs exist",
+  "llm_prompts": "ABSENT - the two labeling instructions gA/gB are described in the manuscript but the exact prompts are not present in the package",
+  "llm_schema": "ABSENT - no structured-output schema logs exist",
+  "llm_retries": "ABSENT - no retry logs exist",
+  "adjudication_logs": "ABSENT - the adjudication step a(.) is described procedurally in the manuscript; no adjudication records/logs are present",
+  "human_annotations": "ABSENT - no independent human labels exist anywhere in the package",
+  "human_agreement_statistics": "BLOCKED - cannot be computed without human labels",
+  "ethics_records": "ABSENT - no ethics approval/exemption records are present in the package",
+  "conclusion": "No LLM provenance, human-validation, or ethics metadata can be reported for the submitted model; nothing was fabricated."
+}

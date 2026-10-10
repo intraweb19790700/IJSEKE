@@ -1,0 +1,20 @@
+# Preregistered model-selection configuration (written before any training).
+run_label: CORRECTED_FAITHFUL_REIMPLEMENTATION
+date: 2026-10-10
+selection_data: locked VALIDATION split only (locked-test labels/predictions are never used)
+lambda_grid: [0.0, 0.03, 0.05, 0.1, 0.25]
+seeds: [20260715, 20260716, 20260717, 20260718, 20260719]
+rule: >-
+  maximize mean validation composite macro-F1 (mean over seeds);
+  within tolerance 0.005 of the best, maximize mean validation
+  consistency; then choose the smaller lambda.
+tolerance: 0.005
+tie_break: smaller lambda
+training:
+  epochs: 160            # manuscript: 160 full-batch epochs
+  batching: full-batch        # one update per epoch over the whole train split
+  optimizer: Adam
+  lr: 0.006
+  weight_decay: 0.0001
+  dropout: 0.15
+  shared_dim: 384

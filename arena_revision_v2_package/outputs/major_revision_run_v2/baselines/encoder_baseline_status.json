@@ -1,0 +1,10 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "date": "2026-10-10",
+  "compact_multilingual_encoder": {
+    "status": "BLOCKED",
+    "reason": "torch and sentence-transformers are not installed in this environment (no GPU/TPU stack, CPU-only sandbox); installing a fine-tunable multilingual encoder (e.g. multilingual-e5-small or paraphrase-multilingual-MiniLM-L12-v2 fine-tuning) is not possible within the storage/network constraints, and the task forbids substitute architectures (no Qwen/LoRA/QLoRA/transformers/new backbone).",
+    "substitute_architecture_used": false,
+    "frozen_embedding_baselines": "also not runnable here: sentence-transformers is not installed; the submitted frozen-embedding numbers (MiniLM/E5/BGE) could not be verified and are not reproduced in this run"
+  }
+}

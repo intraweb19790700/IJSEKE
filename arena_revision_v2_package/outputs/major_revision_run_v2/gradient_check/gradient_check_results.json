@@ -1,0 +1,42 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "date": "2026-10-10",
+  "purpose": "finite-difference verification of the CORRECTED symmetric-KL backward pass (and full student parameter gradients)",
+  "fixture": {
+    "seed": 20260722,
+    "symmetric_kl": {
+      "batch_rows": 5,
+      "classes": 7,
+      "logit_scale": 1.7
+    },
+    "student": {
+      "feature_dim": 12,
+      "shared_dim": 8,
+      "batch_rows": 6,
+      "dropout": 0.0,
+      "dtype": "float64",
+      "lambda": 0.07
+    }
+  },
+  "method": {
+    "analytical": "student.symmetric_kl_logit_grads / TfidfStudent.loss_and_grads",
+    "numerical": "central finite differences, step h=1e-06",
+    "loss": "batch-mean 0.5*(KL(p||q)+KL(q||p)) with epsilon clipping (p=softmax(z_original), q=softmax(z_redacted))"
+  },
+  "symmetric_kl_logit_gradient_check": {
+    "fixture_loss": 1.8723283163353368,
+    "max_abs_error": 3.0362514585879907e-10,
+    "tolerance": 1e-06,
+    "result": "PASS",
+    "detail_file": "gradient_check/symmetric_kl_logit_gradients.csv"
+  },
+  "student_parameter_gradient_check": {
+    "fixture_train_loss": 13.57332207310139,
+    "fixture_consistency_kl": 1.2678538373680188,
+    "max_abs_error": 2.948550514858539e-09,
+    "tolerance": 1e-05,
+    "result": "PASS",
+    "detail_file": "gradient_check/parameter_gradient_check.csv"
+  },
+  "overall_result": "PASS"
+}

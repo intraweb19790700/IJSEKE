@@ -1,0 +1,66 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "rule": "max validation composite macro-F1; within tolerance 0.005 max validation mean consistency; then smaller lambda",
+  "tolerance": 0.005,
+  "per_lambda_validation": [
+    {
+      "lambda": 0.0,
+      "val_composite_macro_f1_mean": 0.549484845511723,
+      "val_composite_macro_f1_std": 0.003284840952742993,
+      "val_mean_consistency_mean": 0.9614617940199336,
+      "val_mean_consistency_std": 0.002866484851726445,
+      "seeds": 5
+    },
+    {
+      "lambda": 0.03,
+      "val_composite_macro_f1_mean": 0.5502595043659152,
+      "val_composite_macro_f1_std": 0.003080552273201862,
+      "val_mean_consistency_mean": 0.9614617940199335,
+      "val_mean_consistency_std": 0.002130164347914937,
+      "seeds": 5
+    },
+    {
+      "lambda": 0.05,
+      "val_composite_macro_f1_mean": 0.5504924764770034,
+      "val_composite_macro_f1_std": 0.0033434740524456454,
+      "val_mean_consistency_mean": 0.9619047619047618,
+      "val_mean_consistency_std": 0.0031904452471513164,
+      "seeds": 5
+    },
+    {
+      "lambda": 0.1,
+      "val_composite_macro_f1_mean": 0.550277211954844,
+      "val_composite_macro_f1_std": 0.0037626168080962673,
+      "val_mean_consistency_mean": 0.9627906976744187,
+      "val_mean_consistency_std": 0.0018530676113711114,
+      "seeds": 5
+    },
+    {
+      "lambda": 0.25,
+      "val_composite_macro_f1_mean": 0.550395973200495,
+      "val_composite_macro_f1_std": 0.0028644829292624307,
+      "val_mean_consistency_mean": 0.9643410852713179,
+      "val_mean_consistency_std": 0.003946518201817366,
+      "seeds": 5
+    }
+  ],
+  "best_composite_macro_f1": 0.5504924764770034,
+  "selected_lambda": 0.25,
+  "selection_data": "locked validation split only; locked-test labels/predictions not used",
+  "selected_at": "2026-10-10",
+  "training": {
+    "epochs": 160,
+    "batching": "full-batch",
+    "lr": 0.006,
+    "weight_decay": 0.0001,
+    "dropout": 0.15,
+    "shared_dim": 384,
+    "seeds": [
+      20260715,
+      20260716,
+      20260717,
+      20260718,
+      20260719
+    ]
+  }
+}
