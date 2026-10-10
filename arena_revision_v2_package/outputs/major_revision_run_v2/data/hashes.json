@@ -1,0 +1,22 @@
+{
+  "run_label": "CORRECTED_FAITHFUL_REIMPLEMENTATION",
+  "date": "2026-10-10",
+  "input/prepared_paired_dataset_2000.csv": "bf3ba79f69fc7b9f9b5c7497e592eec5b2f45b0483ee8db8aa8179797baed91e",
+  "input/IJSEKE-D-26-00185.md": "edfaadaab18b82ef65a3cd7d62a430d09040132618e4edefb622c57683d9c4f1",
+  "input/decision_letter_reviewers.txt": "48dc61f9ce10e0c27f607eec7917436f35b617946c9bd308513815a36c0766b0",
+  "input/review_revision_plan.md": "1c8401a66bd73e79be1901b295e3fbc910cde169356423259f5732efe5939f26",
+  "code_reference_files": {
+    "code_reference/common.py": "c951a84ebf02cc4a6d3efe4ad0865b3fef8476eae81f01e4fed3b4ae56fbac9c",
+    "code_reference/metrics_utils.py": "f7d8e3677ba913fe454a48aac9457118a6ee0fdf27702c83d99ea38c27c05cb9",
+    "code_reference/redaction.py": "39b375972179afee083e434d116dd4c4485d93f37933e9e9c946673ff969560d",
+    "code_reference/stage1_data_audit_split.py": "a8824db6207633c64754eeab4cf1f4a3e4db5074c147c8d8f3c9cb3412f42765",
+    "code_reference/stage1b_leakage_audit_json.py": "aae555a2d51f8361e65fd0d27e1dfc859d35354aee7f282f1332e4d79b5ce673",
+    "code_reference/stage2_train_student.py": "f814c33cf9e36ab032e8b5636ffe7b5d30ba260890d2b7d725e0eae47aa34c81",
+    "code_reference/stage3_test_student.py": "65b97dd08aedb82f39d23f03404aa9e806ca602501fbdf57233cfeff055919a8",
+    "code_reference/stage4_baselines.py": "171b68a2f900e7ea45e99f12d57759a4f4e9de44ffe23c202a8d26898a94af68",
+    "code_reference/stage5_timing.py": "93078d522b6fa0ac5a44f23f44a802c31d06cb8dad17d74e599261c14235fd98",
+    "code_reference/stage6_pii.py": "29a6f04cd61841bc6f9f8a7a301df95e1cc092a09f75e564ea901dde241f3a44",
+    "code_reference/stage7_repro_report.py": "e360a11e24713a3fff43451994072ba03d82cc9b44dab216d51085da732402fc",
+    "code_reference/student.py": "683b37389366ed5d24f18a4960912acea6e16e667202e4d4e7359e70e1a04aa5"
+  }
+}
